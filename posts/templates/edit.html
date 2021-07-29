@@ -1,0 +1,31 @@
+{% extends "posts.html" %} {% load static %} {% load cloudinary %} {% block content %}
+
+<div class="container">
+  <div class="main">
+    <div class="main-header">
+      <img src="{% static 'img/sakura-logo.png' %}" width="80" height="80" />
+      <h1>Edit</h1>
+    </div>
+
+    <div class="tweet-post">
+      <div class="my-icon">
+        <img src="{% static 'img/sakura-logo.png' %}" width="70" height="70" />
+      </div>
+
+      <div class="input-area">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %} {{form.name}} <br />
+          {{form.body}}<br />
+          {{form.image}}<br /><br />
+
+          <button type="submit" class="btn btn-primary">Update</button>
+          <a href="{% url 'index' %}"><button type="submit" class="btn btn-danger">Cancel</button></a>
+        </form>
+      </div>
+    </div>
+
+    <div class="ditch"></div>
+  </div>
+
+  {% endblock %}
+</div>
